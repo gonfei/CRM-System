@@ -331,14 +331,14 @@
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xmlns:context="http://www.springframework.org/schema/context"
-xmlns:p="http://www.springframework.org/schema/p"
-xmlns:util="http://www.springframework.org/schema/util"
-xmlns:aop="http://www.springframework.org/schema/aop"
-xmlns:tx="http://www.springframework.org/schema/tx"
-xmlns:mvc="http://www.springframework.org/schema/mvc"
-xsi:schemaLocation="
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="
 http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.springframework.org/schema/context
@@ -351,23 +351,23 @@ http://www.springframework.org/schema/mvc
 http://www.springframework.org/schema/mvc/spring-mvc.xsd
 http://www.springframework.org/schema/util
 http://www.springframework.org/schema/util/spring-util.xsd">
-<!-- dispatcherServlet截获所有URL请求 -->
-<mvc:default-servlet-handler />
-<!-- spring mvc 扫描包下的controller -->
-<context:component-scan base-package="com.kgh.crm.controller"/>
-<!-- 配置注解驱动 -->
-<mvc:annotation-driven/>
-<!-- 配置视图解析器 -->
-<bean id="viewResolver"
-class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-<property name="prefix" value="/WEB-INF/pages/"/>
-<property name="suffix" value=".jsp"/>
-</bean>
-<!-- 配置文件上传解析器 id:必须是multipartResolver-->
-<!--<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-    <property name="maxUploadSize" value="#{1024*1024*80}"/>
-    <property name="defaultEncoding" value="utf-8"/>
-</bean>-->
+    <!-- dispatcherServlet截获所有URL请求 -->
+    <mvc:default-servlet-handler/>
+    <!-- spring mvc 扫描包下的controller -->
+    <context:component-scan base-package="com.kgh.crm.web.controller"/>
+    <!-- 配置注解驱动 -->
+    <mvc:annotation-driven/>
+    <!-- 配置视图解析器 -->
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+    <!-- 配置文件上传解析器 id:必须是multipartResolver-->
+    <!--<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="#{1024*1024*80}"/>
+        <property name="defaultEncoding" value="utf-8"/>
+    </bean>-->
 </beans>
 
 ```
@@ -491,25 +491,25 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 
 用户在登录页面,输入用户名和密码,点击"登录"按钮或者回车,完成用户登录的功能.
 
-​     *用户名和密码不能为空
+* 用户名和密码不能为空
 
-​     *用户名或者密码错误,用户已过期,用户状态被锁定,ip受限 都不能登录成功
+* 用户名或者密码错误,用户已过期,用户状态被锁定,ip受限 都不能登录成功
 
-​     *登录成功之后,所有业务页面显示当前用户的名称
+* 登录成功之后,所有业务页面显示当前用户的名称
 
-​     *实现10天记住密码
+* 实现10天记住密码
 
-​     *登录成功之后,跳转到业务主页面
+* 登录成功之后,跳转到业务主页面
 
-​     *登录失败,页面不跳转,提示信息
+* 登录失败,页面不跳转,提示信息
 
 ## 3.安全退出
 
 用户在任意的业务页面,点击"退出"按钮,弹出确认退出的模态窗口;用户在确认退出的模态窗口,点击"确定"按钮,完成安全退出的功能.
 
-​     *安全退出,清空cookie,销毁session
+* 安全退出,清空cookie,销毁session
 
-​     *退出完成之后,跳转到首页
+* 退出完成之后,跳转到首页
 
 ## 4.登录验证
 
@@ -517,9 +517,9 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 
 ​     用户访问任何业务资源,都需要进行登录验证. 
 
-​     *只有登录成功的用户才能访问业务资源
+* 只有登录成功的用户才能访问业务资源
 
-​     *没有登录成功的用户访问业务资源,跳转到登录页面
+* 没有登录成功的用户访问业务资源,跳转到登录页面
 
 ## 5.数据字典类型维护
 
@@ -539,11 +539,11 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 
 用户在创建页面，填写表单，点击”保存”按钮，完成创建数据字典类型的功能.
 
-*编码不能为空、不能重复
+* 编码不能为空、不能重复
 
-*创建成功之后，跳转数据字典类型主页面；
+* 创建成功之后，跳转数据字典类型主页面；
 
-*创建失败，提示信息，页面不跳转。
+* 创建失败，提示信息，页面不跳转。
 
 3、修改数据字典类型
 
@@ -551,25 +551,25 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 
  用户在修改记录的页面，填写表单，点击”更新”按钮，完成修改数据字典类型的功能。
 
-  *每次必须修改一条记录,而且只能修改一条记录
+* 每次必须修改一条记录,而且只能修改一条记录
 
-  *数据字典类型的编码不能够修改
+* 数据字典类型的编码不能够修改
 
-*修改成功之后，跳转到数据字典类型的主页面
+* 修改成功之后，跳转到数据字典类型的主页面
 
-*修改失败，提示信息，页面不跳转
+* 修改失败，提示信息，页面不跳转
 
 4、删除数据字典类型
 
  用户在数据字典类型主页面，选择要删除的记录，点击”删除”按钮，弹出确认删除对话框，用户点击”确定”，完成删除数据字典类型的功能。
 
-*每次至少删除一条
+* 每次至少删除一条
 
-*可以批量删除
+* 可以批量删除
 
-*删除成功之后，刷新数据字典类型列表
+* 删除成功之后，刷新数据字典类型列表
 
-*删除失败，提示信息，列表不刷新
+* 删除失败，提示信息，列表不刷新
 
 ## 6.数据字典值维护
 
@@ -587,13 +587,13 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 
 用户在创建数据字典值的页面填写表单，点击”保存”按钮，完成创建数据字典值的功能。
 
-*字典类型编码来自于数据库，并且不能为空
+* 字典类型编码来自于数据库，并且不能为空
 
-*字典值也不能为空
+* 字典值也不能为空
 
-*创建成功之后，跳转到数据字典值主页面
+* 创建成功之后，跳转到数据字典值主页面
 
-*创建失败，提示信息，页面不跳转
+* 创建失败，提示信息，页面不跳转
 
 3、修改数据字典值
 
@@ -601,25 +601,25 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 
 用户在修改数据字典值页面，填写表单，点击”更新”按钮，完成修改数据字典值的功能。
 
-*每次只能修改一条记录，而且必须修改一条
+* 每次只能修改一条记录，而且必须修改一条
 
-*”所属字典类型”字段不能修改
+* ”所属字典类型”字段不能修改
 
-*”字典值”不能为空
+* ”字典值”不能为空
 
-*修改成功之后，跳转到数据字典值主页面
+* 修改成功之后，跳转到数据字典值主页面
 
-*修改失败，提示信息，页面不跳转
+* 修改失败，提示信息，页面不跳转
 
 4、删除数据字典值
 
 用户在数据字典值主页面，选择要删除的记录，点击”删除”按钮，弹出确认删除对话框,用户点击”确定”，完成删除数据字典值的功能。
 
-*每次至少删除一条记录
+* 每次至少删除一条记录
 
-*删除成功之后，跳转到数据字典值主页面
+* 删除成功之后，跳转到数据字典值主页面
 
-*删除失败，提示信息，页面不跳转
+* 删除失败，提示信息，页面不跳转
 
 ## 7.创建市场活动
 
@@ -629,17 +629,17 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 
 ​     用户在创建市场活动的模态窗口填写表单,点击"保存"按钮,完成创建市场活动的功能.
 
-​     *所有者是动态的(//在现实市场活动主页面时，就从数据库中查询出所有用户并且显示在创建的模态窗口中)
+* 所有者是动态的(//在现实市场活动主页面时，就从数据库中查询出所有用户并且显示在创建的模态窗口中)
 
-​     *所有者和名称不能为空
+* 所有者和名称不能为空
 
-​     *如果开始日期和结束日期都不为空,则结束日期不能比开始日期小
+* 如果开始日期和结束日期都不为空,则结束日期不能比开始日期小
 
-​     *成本只能为非负整数
+* 成本只能为非负整数
 
-​     *创建成功之后,关闭模态窗口,刷新市场活动列，显示第一页数据，保持每页显示条数不变
+* 创建成功之后,关闭模态窗口,刷新市场活动列，显示第一页数据，保持每页显示条数不变
 
-​     *创建失败,提示信息创建失败,模态窗口不关闭,市场活动列表也不刷新
+* 创建失败,提示信息创建失败,模态窗口不关闭,市场活动列表也不刷新
 
 ## 8.查询市场活动
 
@@ -649,9 +649,9 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 
 实现翻页功能.
 
-  *在市场活动主页面,显示市场活动列表和记录的总条数
+* 在市场活动主页面,显示市场活动列表和记录的总条数
 
-  *默认每页显示条数:10
+* 默认每页显示条数:10
 
 ## 9.修改市场活动
 
@@ -659,15 +659,15 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 
 ​     用户在修改市场活动的模态窗口填写表单,点击"更新"按钮,完成修改市场活动的功能.
 
-​     *每次能且只能修改一条市场活动
+* 每次能且只能修改一条市场活动
 
-​     *所有者 动态的
+* 所有者 动态的
 
-​     *表单验证(同创建)
+* 表单验证(同创建)
 
-​     *修改成功之后,关闭模态窗口,刷新市场活动列表,保持页号和每页显示条数都不变
+* 修改成功之后,关闭模态窗口,刷新市场活动列表,保持页号和每页显示条数都不变
 
-​     *修改失败,提示信息,模态窗口不关闭,列表也不刷新
+* 修改失败,提示信息,模态窗口不关闭,列表也不刷新
 
 ## 10.删除市场活动
 
@@ -675,13 +675,13 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 
 ​     用户点击"确定"按钮,完成删除市场活动的功能.
 
-​     *每次至少删除一条市场活动
+* 每次至少删除一条市场活动
 
-*可以批量删除市场活动
+* 可以批量删除市场活动
 
-​     *删除成功之后,刷新市场活动列表,显示第一页数据,保持每页显示条数不变
+* 删除成功之后,刷新市场活动列表,显示第一页数据,保持每页显示条数不变
 
-​     *删除失败,提示信息,列表不刷新
+* 删除失败,提示信息,列表不刷新
 
 ## 11.批量导出市场活动
 
@@ -689,7 +689,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 
 ​     用户选择要保存的目录,完成导出市场活动的功能.
 
-​     *导出成功之后,页面不刷新
+* 导出成功之后,页面不刷新
 
 ## 12.选择导出市场活动
 
@@ -697,9 +697,9 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 
 ​     用户选择要保存的目录,完成选择导出市场活动的功能.
 
-  *每次至少选择导出一条记录
+* 每次至少选择导出一条记录
 
-​     *导出成功之后,页面不刷新
+* 导出成功之后,页面不刷新
 
 ## 13.导入市场活动
 
@@ -707,19 +707,19 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 
 ​     用户在导入市场活动的模态窗口选择要上传的文件,点击"导入"按钮,完成导入市场活动的功能.
 
-​     *只支持.xls
+* 只支持.xls
 
-​     *文件大小不超过5MB
+* 文件大小不超过5MB
 
-​     *导入成功之后,提示成功导入记录条数,关闭模态窗口,刷新市场活动列表,显示第一页数据,保持每页显示条数不变
+* 导入成功之后,提示成功导入记录条数,关闭模态窗口,刷新市场活动列表,显示第一页数据,保持每页显示条数不变
 
-​     *导入失败,提示信息,模态窗口不关闭,列表也不刷新
+* 导入失败,提示信息,模态窗口不关闭,列表也不刷新
 
 14    查看市场活动明细
 
 用户在市场活动主页面,点击市场活动名称超级链接,跳转到明细页面,完成查看市场活动明细的功能.
 
-​     *在市场活动明细页面,展示:
+* 在市场活动明细页面,展示:
 
 ​      -市场活动的基本信息
 
@@ -729,19 +729,19 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 
 用户在市场活动明细页面,输入备注内容,点击"保存"按钮,完成添加市场活动备注的功能.
 
-​     *备注内容不能为空
+* 备注内容不能为空
 
-​     *添加成功之后,清空输入框,刷新备注列表
+* 添加成功之后,清空输入框,刷新备注列表
 
-​     *添加失败,提示信息,输入框不清空,列表也不刷新
+* 添加失败,提示信息,输入框不清空,列表也不刷新
 
 ## 16.删除市场活动备注
 
 用户在市场活动明细页面,点击"删除"市场活动备注的图标,完成删除市场活动备注的功能.
 
-​     *删除成功之后,刷新备注列表
+* 删除成功之后,刷新备注列表
 
-​     *删除失败,提示信息,备注列表不刷新
+* 删除失败,提示信息,备注列表不刷新
 
 ## 17.修改市场活动备注
 
@@ -749,11 +749,11 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 
 ​     用户在修改市场活动备注的模态窗口,填写表单,点击"更新"按钮,完成修改市场活动备注的功能.
 
-​     *备注内容不能为空
+* 备注内容不能为空
 
-​     *修改成功之后,关闭模态窗口,刷新备注列表
+* 修改成功之后,关闭模态窗口,刷新备注列表
 
-​     *修改失败,提示信息,模态窗口不关闭,列表也不刷新
+* 修改失败,提示信息,模态窗口不关闭,列表也不刷新
 
 ## 18.创建线索
 
@@ -761,13 +761,13 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 
 用户在创建线索的模态窗口，填写表单，点击”保存”按钮，完成创建线索的功能。
 
-*所有者、称呼、线索状态、线索来源 是动态
+* 所有者、称呼、线索状态、线索来源 是动态
 
-*表单验证
+* 表单验证
 
-*创建成功之后，关闭模态窗口，刷新线索列表，显示第一页数据，保持每页显示条数不变
+* 创建成功之后，关闭模态窗口，刷新线索列表，显示第一页数据，保持每页显示条数不变
 
-*创建失败，提示信息，模态窗口不关闭，列表也不刷新。
+* 创建失败，提示信息，模态窗口不关闭，列表也不刷新。
 
 ## 19. 查询线索
 
@@ -777,9 +777,9 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 
 实现翻页功能.
 
-  *在线索主页面,显示市场活动列表和记录的总条数
+* 在线索主页面,显示市场活动列表和记录的总条数
 
-  *默认每页显示条数:10
+* 默认每页显示条数:10
 
  
 
@@ -787,7 +787,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 
 用户在线索主页面,点击线索名称(fullname和appellition)超级链接,跳转到线索明细页面,完成查看线索明细的功能.
 
-​     *在线索明细页面,展示:
+在线索明细页面,展示:
 
 ​         -线索的基本信息
 
@@ -801,13 +801,13 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 
 用户在线索关联市场活动的模态窗口,输入搜索条件,每次键盘弹起,根据名称模糊查询市场活动,把所有符合条件的市场活动显示到列表中;用户选择要关联的市场活动,点击"关联"按钮,完成线索关联市场活动的功能.
 
-​     *每次至少关联一个市场活动
+* 每次至少关联一个市场活动
 
-​     *同一个市场活动只能跟同一个线索关联一次
+* 同一个市场活动只能跟同一个线索关联一次
 
-​     *关联成功之后,关闭模态窗口,刷新已经关联过的市场活动列表
+* 关联成功之后,关闭模态窗口,刷新已经关联过的市场活动列表
 
-​     *关联失败,提示信息,模态窗口不关闭,已经关联过的市场活动列表也不刷新
+* 关联失败,提示信息,模态窗口不关闭,已经关联过的市场活动列表也不刷新
 
 ## 22.解除线索关联市场活动
 
@@ -815,9 +815,9 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 
 用户点击"确定"按钮,完成解除线索关联市场活动的功能.
 
-​     *解除成功之后,刷新已经关联的市场活动列表
+* 解除成功之后,刷新已经关联的市场活动列表
 
-​     *解除失败,提示信息,列表也不刷新
+* 解除失败,提示信息,列表也不刷新
 
 ## 23.线索转换
 
@@ -895,17 +895,17 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 
 用户在交易明细页面，点击交易阶段的图标，把交易当前的阶段修改为指定的阶段，完成修改交易阶段的功能。
 
-*已经成交的交易不能修改阶段
+* 已经成交的交易不能修改阶段
 
-*修改成功之后，更新：
+* 修改成功之后，更新：
 
---交易的图标信息
+​	--交易的图标信息
 
---交易的基本信息
+​	--交易的基本信息
 
---交易的历史信息
+​	--交易的历史信息
 
- *修改失败，提示信息，页面不更新
+* 修改失败，提示信息，页面不更新
 
 ## 27.交易统计图表
 
