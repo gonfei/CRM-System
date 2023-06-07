@@ -39,7 +39,7 @@
                     &nbsp;&nbsp;
                     <span id="msg"></span>
                 </div>
-                <button type="submit" class="btn btn-primary btn-lg btn-block"
+                <button type="button" class="btn btn-primary btn-lg btn-block"
                         style="width: 350px; position: relative;top: 45px;">登录
                 </button>
             </div>
