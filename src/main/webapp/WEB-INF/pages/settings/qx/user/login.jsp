@@ -42,7 +42,6 @@
                             if (data.code=="1") {
                                 //跳转业务页面
                                 window.location.href = "workbench/index.do";
-
                             }else {
                                 //登录失败提示信息
                                 $("#msg").text(data.message);

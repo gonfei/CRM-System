@@ -19,7 +19,7 @@ public class userController {
     @Autowired
     private userService userService;
 
-    @RequestMapping("/settings/qx/user/login.do")
+    @RequestMapping("/settings/qx/user/toLogin.do")
     public String toLogin() {
         return "settings/qx/user/login";
     }
