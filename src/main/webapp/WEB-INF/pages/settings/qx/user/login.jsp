@@ -11,21 +11,34 @@
     <script type="text/javascript" src="jquery/bootstrap_3.3.0/js/bootstrap.min.js"></script>
     <script type="text/javascript">
         $(function () {
+            //给整个浏览器窗口添加键盘按下事件
+            $(window).keydown(function (event) {
+                //回车键，则提交登录请求
+                if (event.keyCode === 13) {
+                    $("#loginBtn").click();//模拟单击登录按钮事件
+                }
+            });
+
+
             //给登录按钮添加登录事件
             $("#loginBtn").click(function () {
                 //收集参数
+
                 var loginAct = $.trim($("#username").val())
                 var loginPwd = $.trim($("#pwd").val())
                 var isRemPwd = $("#isRemPwd").prop("checked");
                 //表单验证
-                if (loginAct == "") {
+                if (loginAct === "") {
                     alert("请输入用户名");
                     return;
                 }
-                if (loginPwd == "") {
+                if (loginPwd === "") {
                     alert("请输入密码");
                     return;
                 }
+
+                //显示正在验证
+                $("#msg").text("正在验证中...");
 
                 //发送请求
                 $.ajax(
@@ -39,12 +52,13 @@
                         type: 'post',
                         dataType: 'json',
                         success: function (data) {
-                            if (data.code=="1") {
+                            if (data.code === "1") {
+                                //登录成功
                                 //跳转业务页面
                                 window.location.href = "workbench/index.do";
-                            }else {
+                            } else {
                                 //登录失败提示信息
-                                $("#msg").text(data.message);
+                                $("#msg").text("用户名或密码错误");
                             }
                         },
                     }
@@ -80,7 +94,7 @@
                         <input type="checkbox" id="isRemPwd"> 十天内免登录
                     </label>
                     &nbsp;&nbsp;
-                    <span id="msg"></span>
+                    <span id="msg" style="color: red"></span>
                 </div>
                 <button type="button" id="loginBtn" class="btn btn-primary btn-lg btn-block"
                         style="width: 350px; position: relative;top: 45px;">登录
